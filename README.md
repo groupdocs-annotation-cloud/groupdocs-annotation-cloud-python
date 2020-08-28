@@ -48,12 +48,4 @@ except groupdocs_annotation_cloud.ApiException as e:
 ## Licensing
 GroupDocs.Annotation Cloud Python SDK licensed under [MIT License](http://github.com/groupdocs-annotation-cloud/groupdocs-annotation-cloud-python/LICENSE).
 
-## Resources
-+ [**Website**](https://www.groupdocs.cloud)
-+ [**Product Home**](https://products.groupdocs.cloud/annotation)
-+ [**Documentation**](https://docs.groupdocs.cloud/display/annotationcloud/Home)
-+ [**Free Support Forum**](https://forum.groupdocs.cloud/c/annotation)
-+ [**Blog**](https://blog.groupdocs.cloud/category/annotation)
-
-## Contact Us
-Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.groupdocs.cloud/c/annotation).
+[Home](https://www.groupdocs.cloud/) | [Docs](https://docs.groupdocs.cloud/annotation/) | [API Reference](https://apireference.groupdocs.cloud/annotation/) | [Examples](https://github.com/groupdocs-annotation-cloud/groupdocs-annotation-cloud-python) | [Blog](https://blog.groupdocs.cloud/category/annotation/) | [Free Support](https://forum.groupdocs.cloud/c/annotation) | [Free Trial](https://purchase.groupdocs.cloud/trial)

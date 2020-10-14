@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) 2003-2020 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -51,14 +51,10 @@ class TestAnnotateApi(TestContext):
             self.assertGreater(len(response), 0)
 
     def test_c_get_export(self):        
-        self.get_export_case(TestFile.OnePageDiagram())
         self.get_export_case(TestFile.OnePageEmail())
         self.get_export_case(TestFile.OnePagePng())
         self.get_export_case(TestFile.OnePagePdf())
-        self.get_export_case(TestFile.OnePageSlides())
         self.get_export_case(TestFile.OnePageWords())
-        self.get_export_case(TestFile.TenPagesDiagram(), "Area,Point", True, 2, 5)
-        self.get_export_case(TestFile.TenPagesSlides(), "Area,Point", True, 2, 5)
         self.get_export_case(TestFile.TenPagesWords(), "Area,Point", True, 2, 5)
         self.get_export_case(TestFile.OnePagePasswordPdf(), None, None, None, None, "password")
 
@@ -87,7 +83,7 @@ class TestAnnotateApi(TestContext):
         a.box.height = 37.7290153503418
         a.page_number = 0
         a.pen_color = 1201033
-        a.pen_style = 0
+        a.pen_style = "Solid"
         a.pen_width = 1
         a.type = "Area"
         a.creator_name = "Anonym A."

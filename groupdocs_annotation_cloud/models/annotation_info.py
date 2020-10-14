@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="AnnotationInfo.py">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) 2003-2020 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,45 +43,50 @@ class AnnotationInfo(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'guid': 'str',
-        'document_guid': 'int',
+        'id': 'int',
         'text': 'str',
-        'creator_guid': 'str',
+        'text_to_replace': 'str',
+        'horizontal_alignment': 'str',
+        'vertical_alignment': 'str',
+        'creator_id': 'int',
         'creator_name': 'str',
         'creator_email': 'str',
         'box': 'Rectangle',
+        'points': 'list[Point]',
         'page_number': 'int',
         'annotation_position': 'Point',
         'svg_path': 'str',
         'type': 'str',
-        'access': 'str',
         'replies': 'list[AnnotationReplyInfo]',
         'created_on': 'datetime',
         'font_color': 'int',
         'pen_color': 'int',
         'pen_width': 'int',
-        'pen_style': 'int',
+        'pen_style': 'str',
         'background_color': 'int',
-        'field_text': 'str',
         'font_family': 'str',
         'font_size': 'float',
         'opacity': 'float',
-        'angle': 'float'
+        'angle': 'float',
+        'url': 'str',
+        'image_path': 'str'
     }
 
     attribute_map = {
-        'guid': 'Guid',
-        'document_guid': 'DocumentGuid',
+        'id': 'Id',
         'text': 'Text',
-        'creator_guid': 'CreatorGuid',
+        'text_to_replace': 'TextToReplace',
+        'horizontal_alignment': 'HorizontalAlignment',
+        'vertical_alignment': 'VerticalAlignment',
+        'creator_id': 'CreatorId',
         'creator_name': 'CreatorName',
         'creator_email': 'CreatorEmail',
         'box': 'Box',
+        'points': 'Points',
         'page_number': 'PageNumber',
         'annotation_position': 'AnnotationPosition',
         'svg_path': 'SvgPath',
         'type': 'Type',
-        'access': 'Access',
         'replies': 'Replies',
         'created_on': 'CreatedOn',
         'font_color': 'FontColor',
@@ -89,28 +94,31 @@ class AnnotationInfo(object):
         'pen_width': 'PenWidth',
         'pen_style': 'PenStyle',
         'background_color': 'BackgroundColor',
-        'field_text': 'FieldText',
         'font_family': 'FontFamily',
         'font_size': 'FontSize',
         'opacity': 'Opacity',
-        'angle': 'Angle'
+        'angle': 'Angle',
+        'url': 'Url',
+        'image_path': 'ImagePath'
     }
 
-    def __init__(self, guid=None, document_guid=None, text=None, creator_guid=None, creator_name=None, creator_email=None, box=None, page_number=None, annotation_position=None, svg_path=None, type=None, access=None, replies=None, created_on=None, font_color=None, pen_color=None, pen_width=None, pen_style=None, background_color=None, field_text=None, font_family=None, font_size=None, opacity=None, angle=None, **kwargs):  # noqa: E501
+    def __init__(self, id=None, text=None, text_to_replace=None, horizontal_alignment=None, vertical_alignment=None, creator_id=None, creator_name=None, creator_email=None, box=None, points=None, page_number=None, annotation_position=None, svg_path=None, type=None, replies=None, created_on=None, font_color=None, pen_color=None, pen_width=None, pen_style=None, background_color=None, font_family=None, font_size=None, opacity=None, angle=None, url=None, image_path=None, **kwargs):  # noqa: E501
         """Initializes new instance of AnnotationInfo"""  # noqa: E501
 
-        self._guid = None
-        self._document_guid = None
+        self._id = None
         self._text = None
-        self._creator_guid = None
+        self._text_to_replace = None
+        self._horizontal_alignment = None
+        self._vertical_alignment = None
+        self._creator_id = None
         self._creator_name = None
         self._creator_email = None
         self._box = None
+        self._points = None
         self._page_number = None
         self._annotation_position = None
         self._svg_path = None
         self._type = None
-        self._access = None
         self._replies = None
         self._created_on = None
         self._font_color = None
@@ -118,26 +126,33 @@ class AnnotationInfo(object):
         self._pen_width = None
         self._pen_style = None
         self._background_color = None
-        self._field_text = None
         self._font_family = None
         self._font_size = None
         self._opacity = None
         self._angle = None
+        self._url = None
+        self._image_path = None
 
-        if guid is not None:
-            self.guid = guid
-        if document_guid is not None:
-            self.document_guid = document_guid
+        if id is not None:
+            self.id = id
         if text is not None:
             self.text = text
-        if creator_guid is not None:
-            self.creator_guid = creator_guid
+        if text_to_replace is not None:
+            self.text_to_replace = text_to_replace
+        if horizontal_alignment is not None:
+            self.horizontal_alignment = horizontal_alignment
+        if vertical_alignment is not None:
+            self.vertical_alignment = vertical_alignment
+        if creator_id is not None:
+            self.creator_id = creator_id
         if creator_name is not None:
             self.creator_name = creator_name
         if creator_email is not None:
             self.creator_email = creator_email
         if box is not None:
             self.box = box
+        if points is not None:
+            self.points = points
         if page_number is not None:
             self.page_number = page_number
         if annotation_position is not None:
@@ -146,8 +161,6 @@ class AnnotationInfo(object):
             self.svg_path = svg_path
         if type is not None:
             self.type = type
-        if access is not None:
-            self.access = access
         if replies is not None:
             self.replies = replies
         if created_on is not None:
@@ -162,8 +175,6 @@ class AnnotationInfo(object):
             self.pen_style = pen_style
         if background_color is not None:
             self.background_color = background_color
-        if field_text is not None:
-            self.field_text = field_text
         if font_family is not None:
             self.font_family = font_family
         if font_size is not None:
@@ -172,56 +183,36 @@ class AnnotationInfo(object):
             self.opacity = opacity
         if angle is not None:
             self.angle = angle
+        if url is not None:
+            self.url = url
+        if image_path is not None:
+            self.image_path = image_path
     
     @property
-    def guid(self):
+    def id(self):
         """
-        Gets the guid.  # noqa: E501
+        Gets the id.  # noqa: E501
 
         Gets or sets the unique identifier  # noqa: E501
 
-        :return: The guid.  # noqa: E501
-        :rtype: str
-        """
-        return self._guid
-
-    @guid.setter
-    def guid(self, guid):
-        """
-        Sets the guid.
-
-        Gets or sets the unique identifier  # noqa: E501
-
-        :param guid: The guid.  # noqa: E501
-        :type: str
-        """
-        self._guid = guid
-    
-    @property
-    def document_guid(self):
-        """
-        Gets the document_guid.  # noqa: E501
-
-        Gets or sets the document unique identifier  # noqa: E501
-
-        :return: The document_guid.  # noqa: E501
+        :return: The id.  # noqa: E501
         :rtype: int
         """
-        return self._document_guid
+        return self._id
 
-    @document_guid.setter
-    def document_guid(self, document_guid):
+    @id.setter
+    def id(self, id):
         """
-        Sets the document_guid.
+        Sets the id.
 
-        Gets or sets the document unique identifier  # noqa: E501
+        Gets or sets the unique identifier  # noqa: E501
 
-        :param document_guid: The document_guid.  # noqa: E501
+        :param id: The id.  # noqa: E501
         :type: int
         """
-        if document_guid is None:
-            raise ValueError("Invalid value for `document_guid`, must not be `None`")  # noqa: E501
-        self._document_guid = document_guid
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        self._id = id
     
     @property
     def text(self):
@@ -248,28 +239,122 @@ class AnnotationInfo(object):
         self._text = text
     
     @property
-    def creator_guid(self):
+    def text_to_replace(self):
         """
-        Gets the creator_guid.  # noqa: E501
+        Gets the text_to_replace.  # noqa: E501
 
-        Gets or sets the creator unique identifier  # noqa: E501
+        GGets or sets text to be replaced  # noqa: E501
 
-        :return: The creator_guid.  # noqa: E501
+        :return: The text_to_replace.  # noqa: E501
         :rtype: str
         """
-        return self._creator_guid
+        return self._text_to_replace
 
-    @creator_guid.setter
-    def creator_guid(self, creator_guid):
+    @text_to_replace.setter
+    def text_to_replace(self, text_to_replace):
         """
-        Sets the creator_guid.
+        Sets the text_to_replace.
+
+        GGets or sets text to be replaced  # noqa: E501
+
+        :param text_to_replace: The text_to_replace.  # noqa: E501
+        :type: str
+        """
+        self._text_to_replace = text_to_replace
+    
+    @property
+    def horizontal_alignment(self):
+        """
+        Gets the horizontal_alignment.  # noqa: E501
+
+        Gets or sets text horizontal alignment  # noqa: E501
+
+        :return: The horizontal_alignment.  # noqa: E501
+        :rtype: str
+        """
+        return self._horizontal_alignment
+
+    @horizontal_alignment.setter
+    def horizontal_alignment(self, horizontal_alignment):
+        """
+        Sets the horizontal_alignment.
+
+        Gets or sets text horizontal alignment  # noqa: E501
+
+        :param horizontal_alignment: The horizontal_alignment.  # noqa: E501
+        :type: str
+        """
+        if horizontal_alignment is None:
+            raise ValueError("Invalid value for `horizontal_alignment`, must not be `None`")  # noqa: E501
+        allowed_values = ["None", "Left", "Center", "Right"]  # noqa: E501
+        if not horizontal_alignment.isdigit():	
+            if horizontal_alignment not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `horizontal_alignment` ({0}), must be one of {1}"  # noqa: E501
+                    .format(horizontal_alignment, allowed_values))
+            self._horizontal_alignment = horizontal_alignment
+        else:
+            self._horizontal_alignment = allowed_values[int(horizontal_alignment) if six.PY3 else long(horizontal_alignment)]
+    
+    @property
+    def vertical_alignment(self):
+        """
+        Gets the vertical_alignment.  # noqa: E501
+
+        Gets or sets text vertical alignment  # noqa: E501
+
+        :return: The vertical_alignment.  # noqa: E501
+        :rtype: str
+        """
+        return self._vertical_alignment
+
+    @vertical_alignment.setter
+    def vertical_alignment(self, vertical_alignment):
+        """
+        Sets the vertical_alignment.
+
+        Gets or sets text vertical alignment  # noqa: E501
+
+        :param vertical_alignment: The vertical_alignment.  # noqa: E501
+        :type: str
+        """
+        if vertical_alignment is None:
+            raise ValueError("Invalid value for `vertical_alignment`, must not be `None`")  # noqa: E501
+        allowed_values = ["None", "Top", "Center", "Bottom"]  # noqa: E501
+        if not vertical_alignment.isdigit():	
+            if vertical_alignment not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `vertical_alignment` ({0}), must be one of {1}"  # noqa: E501
+                    .format(vertical_alignment, allowed_values))
+            self._vertical_alignment = vertical_alignment
+        else:
+            self._vertical_alignment = allowed_values[int(vertical_alignment) if six.PY3 else long(vertical_alignment)]
+    
+    @property
+    def creator_id(self):
+        """
+        Gets the creator_id.  # noqa: E501
 
         Gets or sets the creator unique identifier  # noqa: E501
 
-        :param creator_guid: The creator_guid.  # noqa: E501
-        :type: str
+        :return: The creator_id.  # noqa: E501
+        :rtype: int
         """
-        self._creator_guid = creator_guid
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """
+        Sets the creator_id.
+
+        Gets or sets the creator unique identifier  # noqa: E501
+
+        :param creator_id: The creator_id.  # noqa: E501
+        :type: int
+        """
+        if creator_id is None:
+            raise ValueError("Invalid value for `creator_id`, must not be `None`")  # noqa: E501
+        self._creator_id = creator_id
     
     @property
     def creator_name(self):
@@ -344,6 +429,30 @@ class AnnotationInfo(object):
         if box is None:
             raise ValueError("Invalid value for `box`, must not be `None`")  # noqa: E501
         self._box = box
+    
+    @property
+    def points(self):
+        """
+        Gets the points.  # noqa: E501
+
+        Gets or sets collection of points that describe rectangles with text  # noqa: E501
+
+        :return: The points.  # noqa: E501
+        :rtype: list[Point]
+        """
+        return self._points
+
+    @points.setter
+    def points(self, points):
+        """
+        Sets the points.
+
+        Gets or sets collection of points that describe rectangles with text  # noqa: E501
+
+        :param points: The points.  # noqa: E501
+        :type: list[Point]
+        """
+        self._points = points
     
     @property
     def page_number(self):
@@ -441,7 +550,7 @@ class AnnotationInfo(object):
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["Text", "Area", "Point", "TextStrikeout", "Polyline", "TextField", "Watermark", "TextReplacement", "Arrow", "TextRedaction", "ResourcesRedaction", "TextUnderline", "Distance", "Ellipse"]  # noqa: E501
+        allowed_values = ["None", "Area", "Arrow", "Distance", "Ellipse", "Link", "Point", "Polyline", "ResourcesRedaction", "TextField", "TextHighlight", "TextRedaction", "TextReplacement", "TextStrikeout", "TextUnderline", "Watermark", "Image"]  # noqa: E501
         if not type.isdigit():	
             if type not in allowed_values:
                 raise ValueError(
@@ -450,38 +559,6 @@ class AnnotationInfo(object):
             self._type = type
         else:
             self._type = allowed_values[int(type) if six.PY3 else long(type)]
-    
-    @property
-    def access(self):
-        """
-        Gets the access.  # noqa: E501
-
-        Gets or sets the annotation access  # noqa: E501
-
-        :return: The access.  # noqa: E501
-        :rtype: str
-        """
-        return self._access
-
-    @access.setter
-    def access(self, access):
-        """
-        Sets the access.
-
-        Gets or sets the annotation access  # noqa: E501
-
-        :param access: The access.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["Public", "Private"]  # noqa: E501
-        if not access.isdigit():	
-            if access not in allowed_values:
-                raise ValueError(
-                    "Invalid value for `access` ({0}), must be one of {1}"  # noqa: E501
-                    .format(access, allowed_values))
-            self._access = access
-        else:
-            self._access = allowed_values[int(access) if six.PY3 else long(access)]
     
     @property
     def replies(self):
@@ -613,7 +690,7 @@ class AnnotationInfo(object):
         Gets or sets the annotation's pen style  # noqa: E501
 
         :return: The pen_style.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._pen_style
 
@@ -625,9 +702,17 @@ class AnnotationInfo(object):
         Gets or sets the annotation's pen style  # noqa: E501
 
         :param pen_style: The pen_style.  # noqa: E501
-        :type: int
+        :type: str
         """
-        self._pen_style = pen_style
+        allowed_values = ["Solid", "Dash", "DashDot", "Dot", "LongDash", "DashDotDot"]  # noqa: E501
+        if not pen_style.isdigit():	
+            if pen_style not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `pen_style` ({0}), must be one of {1}"  # noqa: E501
+                    .format(pen_style, allowed_values))
+            self._pen_style = pen_style
+        else:
+            self._pen_style = allowed_values[int(pen_style) if six.PY3 else long(pen_style)]
     
     @property
     def background_color(self):
@@ -652,30 +737,6 @@ class AnnotationInfo(object):
         :type: int
         """
         self._background_color = background_color
-    
-    @property
-    def field_text(self):
-        """
-        Gets the field_text.  # noqa: E501
-
-        Gets or sets the annotation's field text  # noqa: E501
-
-        :return: The field_text.  # noqa: E501
-        :rtype: str
-        """
-        return self._field_text
-
-    @field_text.setter
-    def field_text(self, field_text):
-        """
-        Sets the field_text.
-
-        Gets or sets the annotation's field text  # noqa: E501
-
-        :param field_text: The field_text.  # noqa: E501
-        :type: str
-        """
-        self._field_text = field_text
     
     @property
     def font_family(self):
@@ -772,6 +833,54 @@ class AnnotationInfo(object):
         :type: float
         """
         self._angle = angle
+    
+    @property
+    def url(self):
+        """
+        Gets the url.  # noqa: E501
+
+        Gets or sets annotation link url  # noqa: E501
+
+        :return: The url.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """
+        Sets the url.
+
+        Gets or sets annotation link url  # noqa: E501
+
+        :param url: The url.  # noqa: E501
+        :type: str
+        """
+        self._url = url
+    
+    @property
+    def image_path(self):
+        """
+        Gets the image_path.  # noqa: E501
+
+        Gets or sets image file path in cloud storage, for Image annotations  # noqa: E501
+
+        :return: The image_path.  # noqa: E501
+        :rtype: str
+        """
+        return self._image_path
+
+    @image_path.setter
+    def image_path(self, image_path):
+        """
+        Sets the image_path.
+
+        Gets or sets image file path in cloud storage, for Image annotations  # noqa: E501
+
+        :param image_path: The image_path.  # noqa: E501
+        :type: str
+        """
+        self._image_path = image_path
 
     def to_dict(self):
         """Returns the model properties as a dict"""

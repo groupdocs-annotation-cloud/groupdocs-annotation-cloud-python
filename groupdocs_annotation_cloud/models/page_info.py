@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="PageInfo.py">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) 2003-2020 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,27 +45,21 @@ class PageInfo(object):
     swagger_types = {
         'number': 'int',
         'width': 'int',
-        'height': 'int',
-        'is_visible': 'bool',
-        'rows': 'list[RowInfo]'
+        'height': 'int'
     }
 
     attribute_map = {
         'number': 'Number',
         'width': 'Width',
-        'height': 'Height',
-        'is_visible': 'IsVisible',
-        'rows': 'Rows'
+        'height': 'Height'
     }
 
-    def __init__(self, number=None, width=None, height=None, is_visible=None, rows=None, **kwargs):  # noqa: E501
+    def __init__(self, number=None, width=None, height=None, **kwargs):  # noqa: E501
         """Initializes new instance of PageInfo"""  # noqa: E501
 
         self._number = None
         self._width = None
         self._height = None
-        self._is_visible = None
-        self._rows = None
 
         if number is not None:
             self.number = number
@@ -73,10 +67,6 @@ class PageInfo(object):
             self.width = width
         if height is not None:
             self.height = height
-        if is_visible is not None:
-            self.is_visible = is_visible
-        if rows is not None:
-            self.rows = rows
     
     @property
     def number(self):
@@ -155,56 +145,6 @@ class PageInfo(object):
         if height is None:
             raise ValueError("Invalid value for `height`, must not be `None`")  # noqa: E501
         self._height = height
-    
-    @property
-    def is_visible(self):
-        """
-        Gets the is_visible.  # noqa: E501
-
-        Indicates whether page is visible or not  # noqa: E501
-
-        :return: The is_visible.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_visible
-
-    @is_visible.setter
-    def is_visible(self, is_visible):
-        """
-        Sets the is_visible.
-
-        Indicates whether page is visible or not  # noqa: E501
-
-        :param is_visible: The is_visible.  # noqa: E501
-        :type: bool
-        """
-        if is_visible is None:
-            raise ValueError("Invalid value for `is_visible`, must not be `None`")  # noqa: E501
-        self._is_visible = is_visible
-    
-    @property
-    def rows(self):
-        """
-        Gets the rows.  # noqa: E501
-
-        Gets or sets the list of text rows  # noqa: E501
-
-        :return: The rows.  # noqa: E501
-        :rtype: list[RowInfo]
-        """
-        return self._rows
-
-    @rows.setter
-    def rows(self, rows):
-        """
-        Sets the rows.
-
-        Gets or sets the list of text rows  # noqa: E501
-
-        :param rows: The rows.  # noqa: E501
-        :type: list[RowInfo]
-        """
-        self._rows = rows
 
     def to_dict(self):
         """Returns the model properties as a dict"""

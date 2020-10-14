@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="PageImage.py">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) 2003-2020 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +34,7 @@ from groupdocs_annotation_cloud.models import LinkElement
 
 class PageImage(LinkElement):
     """
-    The document page image representatoin
+    The document page image representation
     """
 
     """

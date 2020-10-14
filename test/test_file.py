@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="test_file.py">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) 2003-2020 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -161,10 +161,10 @@ class TestFile:
     def get_test_files(cls):
         return [
             cls.OnePageCells(),
-            #cls.OnePagePasswordCells(),
+            cls.OnePagePasswordCells(),
             cls.TenPagesCells(),
-            cls.OnePageDiagram(),
-            cls.TenPagesDiagram(),
+            #cls.OnePageDiagram(),
+            #cls.TenPagesDiagram(),
             cls.OnePageEmail(),
             cls.OnePageHtml(),
             cls.OnePageBmp(),
@@ -172,11 +172,11 @@ class TestFile:
             cls.OnePagePdf(),
             cls.OnePagePasswordPdf(),
             cls.TenPagesPdf(),
-            cls.OnePageSlides(),
-            #cls.OnePagePasswordSlides(),
-            cls.TenPagesSlides(),
+            #cls.OnePageSlides(),
+            cls.OnePagePasswordSlides(),
+            #cls.TenPagesSlides(),
             cls.OnePageWords(),
-            #cls.OnePagePasswordWords(),
+            cls.OnePagePasswordWords(),
             cls.TenPagesWords()
         ]
 
@@ -202,8 +202,9 @@ class TestFile:
     @classmethod
     def get_test_files_many_pages(cls):
         return [            
+            cls.TenPagesCells(),
             cls.TenPagesDiagram(),
-            cls.TenPagesPdf(),
+            #cls.TenPagesPdf(),
             cls.TenPagesSlides(),
             cls.TenPagesWords()
         ]                

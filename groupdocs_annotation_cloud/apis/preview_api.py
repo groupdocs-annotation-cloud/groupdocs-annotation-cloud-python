@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) 2003-2020 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -185,12 +185,12 @@ class PreviewApi(object):
 
         :param is_async bool
         :param str file_path: Document path in storage (required)
-        :param int count_pages_to_convert: The count pages to convert
-        :param int page_number: The start page number
         :param list[int] page_numbers_to_convert: The list of page numbers to convert
+        :param str format: Preview format: \"PNG\" (default), \"JPEG\", or \"BMP\"
+        :param int width: Preview image width
+        :param int height: Preview image height
         :param bool without_annotations: If true returns specific pages without annotations
-        :param bool enable_caching: Indicates whether to use previously cached document or not
-        :param str cache_storage_path: The cache storage path
+        :param bool render_comments: Render comments (false by default)
         :param str password: Source document opening password
         :return: PageImages
                  If the method is called asynchronously,
@@ -243,37 +243,37 @@ class PreviewApi(object):
         else:
             if request.file_path is not None:
                 query_params.append((self.__downcase_first_letter('filePath'), request.file_path))  # noqa: E501
-        if self.__downcase_first_letter('countPagesToConvert') in path:
-            path = path.replace('{' + self.__downcase_first_letter('countPagesToConvert' + '}'), request.count_pages_to_convert if request.count_pages_to_convert is not None else '')
-        else:
-            if request.count_pages_to_convert is not None:
-                query_params.append((self.__downcase_first_letter('countPagesToConvert'), request.count_pages_to_convert))  # noqa: E501
-        if self.__downcase_first_letter('pageNumber') in path:
-            path = path.replace('{' + self.__downcase_first_letter('pageNumber' + '}'), request.page_number if request.page_number is not None else '')
-        else:
-            if request.page_number is not None:
-                query_params.append((self.__downcase_first_letter('pageNumber'), request.page_number))  # noqa: E501
         if self.__downcase_first_letter('pageNumbersToConvert') in path:
             path = path.replace('{' + self.__downcase_first_letter('pageNumbersToConvert' + '}'), request.page_numbers_to_convert if request.page_numbers_to_convert is not None else '')
         else:
             if request.page_numbers_to_convert is not None:
                 query_params.append((self.__downcase_first_letter('pageNumbersToConvert'), request.page_numbers_to_convert))  # noqa: E501
                 collection_formats[self.__downcase_first_letter('pageNumbersToConvert')] = 'multi'  # noqa: E501
+        if self.__downcase_first_letter('format') in path:
+            path = path.replace('{' + self.__downcase_first_letter('format' + '}'), request.format if request.format is not None else '')
+        else:
+            if request.format is not None:
+                query_params.append((self.__downcase_first_letter('format'), request.format))  # noqa: E501
+        if self.__downcase_first_letter('width') in path:
+            path = path.replace('{' + self.__downcase_first_letter('width' + '}'), request.width if request.width is not None else '')
+        else:
+            if request.width is not None:
+                query_params.append((self.__downcase_first_letter('width'), request.width))  # noqa: E501
+        if self.__downcase_first_letter('height') in path:
+            path = path.replace('{' + self.__downcase_first_letter('height' + '}'), request.height if request.height is not None else '')
+        else:
+            if request.height is not None:
+                query_params.append((self.__downcase_first_letter('height'), request.height))  # noqa: E501
         if self.__downcase_first_letter('withoutAnnotations') in path:
             path = path.replace('{' + self.__downcase_first_letter('withoutAnnotations' + '}'), request.without_annotations if request.without_annotations is not None else '')
         else:
             if request.without_annotations is not None:
                 query_params.append((self.__downcase_first_letter('withoutAnnotations'), request.without_annotations))  # noqa: E501
-        if self.__downcase_first_letter('enableCaching') in path:
-            path = path.replace('{' + self.__downcase_first_letter('enableCaching' + '}'), request.enable_caching if request.enable_caching is not None else '')
+        if self.__downcase_first_letter('renderComments') in path:
+            path = path.replace('{' + self.__downcase_first_letter('renderComments' + '}'), request.render_comments if request.render_comments is not None else '')
         else:
-            if request.enable_caching is not None:
-                query_params.append((self.__downcase_first_letter('enableCaching'), request.enable_caching))  # noqa: E501
-        if self.__downcase_first_letter('cacheStoragePath') in path:
-            path = path.replace('{' + self.__downcase_first_letter('cacheStoragePath' + '}'), request.cache_storage_path if request.cache_storage_path is not None else '')
-        else:
-            if request.cache_storage_path is not None:
-                query_params.append((self.__downcase_first_letter('cacheStoragePath'), request.cache_storage_path))  # noqa: E501
+            if request.render_comments is not None:
+                query_params.append((self.__downcase_first_letter('renderComments'), request.render_comments))  # noqa: E501
         if self.__downcase_first_letter('password') in path:
             path = path.replace('{' + self.__downcase_first_letter('password' + '}'), request.password if request.password is not None else '')
         else:
@@ -324,7 +324,7 @@ class PreviewApi(object):
 
 # --------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="delete_pages_request.py">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) 2003-2020 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -360,7 +360,7 @@ class DeletePagesRequest(object):
 
 # --------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="get_pages_request.py">
-#   Copyright (c) 2003-2019 Aspose Pty Ltd
+#   Copyright (c) 2003-2020 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -387,22 +387,22 @@ class GetPagesRequest(object):
     """
     Request model for get_pages operation.
     :param file_path Document path in storage
-    :param count_pages_to_convert The count pages to convert
-    :param page_number The start page number
     :param page_numbers_to_convert The list of page numbers to convert
+    :param format Preview format: \"PNG\" (default), \"JPEG\", or \"BMP\"
+    :param width Preview image width
+    :param height Preview image height
     :param without_annotations If true returns specific pages without annotations
-    :param enable_caching Indicates whether to use previously cached document or not
-    :param cache_storage_path The cache storage path
+    :param render_comments Render comments (false by default)
     :param password Source document opening password
     """
 
-    def __init__(self, file_path, count_pages_to_convert=None, page_number=None, page_numbers_to_convert=None, without_annotations=None, enable_caching=None, cache_storage_path=None, password=None):
+    def __init__(self, file_path, page_numbers_to_convert=None, format=None, width=None, height=None, without_annotations=None, render_comments=None, password=None):
         """Initializes new instance of GetPagesRequest."""  # noqa: E501
         self.file_path = file_path
-        self.count_pages_to_convert = count_pages_to_convert
-        self.page_number = page_number
         self.page_numbers_to_convert = page_numbers_to_convert
+        self.format = format
+        self.width = width
+        self.height = height
         self.without_annotations = without_annotations
-        self.enable_caching = enable_caching
-        self.cache_storage_path = cache_storage_path
+        self.render_comments = render_comments
         self.password = password

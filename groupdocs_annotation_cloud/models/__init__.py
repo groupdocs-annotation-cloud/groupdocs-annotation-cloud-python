@@ -22,7 +22,6 @@ from groupdocs_annotation_cloud.models.page_images import PageImages
 from groupdocs_annotation_cloud.models.page_info import PageInfo
 from groupdocs_annotation_cloud.models.point import Point
 from groupdocs_annotation_cloud.models.rectangle import Rectangle
-from groupdocs_annotation_cloud.models.row_info import RowInfo
 from groupdocs_annotation_cloud.models.storage_exist import StorageExist
 from groupdocs_annotation_cloud.models.storage_file import StorageFile
 from groupdocs_annotation_cloud.models.annotation_api_link import AnnotationApiLink

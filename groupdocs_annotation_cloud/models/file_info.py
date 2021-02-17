@@ -1,7 +1,7 @@
 # coding: utf-8
 
 # -----------------------------------------------------------------------------------
-# <copyright company="Aspose Pty Ltd" file="FileVersion.py">
+# <copyright company="Aspose Pty Ltd" file="FileInfo.py">
 #   Copyright (c) 2003-2021 Aspose Pty Ltd
 # </copyright>
 # <summary>
@@ -30,11 +30,9 @@ import re  # noqa: F401
 
 import six
 
-from groupdocs_annotation_cloud.models import StorageFile
-
-class FileVersion(StorageFile):
+class FileInfo(object):
     """
-    File Version
+    File info
     """
 
     """
@@ -45,38 +43,90 @@ class FileVersion(StorageFile):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'file_path': 'str',
+        'storage_name': 'str',
         'version_id': 'str',
-        'is_latest': 'bool'
+        'password': 'str'
     }
 
     attribute_map = {
+        'file_path': 'FilePath',
+        'storage_name': 'StorageName',
         'version_id': 'VersionId',
-        'is_latest': 'IsLatest'
+        'password': 'Password'
     }
 
-    def __init__(self, version_id=None, is_latest=None, **kwargs):  # noqa: E501
-        """Initializes new instance of FileVersion"""  # noqa: E501
+    def __init__(self, file_path=None, storage_name=None, version_id=None, password=None, **kwargs):  # noqa: E501
+        """Initializes new instance of FileInfo"""  # noqa: E501
 
+        self._file_path = None
+        self._storage_name = None
         self._version_id = None
-        self._is_latest = None
+        self._password = None
 
+        if file_path is not None:
+            self.file_path = file_path
+        if storage_name is not None:
+            self.storage_name = storage_name
         if version_id is not None:
             self.version_id = version_id
-        if is_latest is not None:
-            self.is_latest = is_latest
+        if password is not None:
+            self.password = password
+    
+    @property
+    def file_path(self):
+        """
+        Gets the file_path.  # noqa: E501
 
-        base = super(FileVersion, self)
-        base.__init__(**kwargs)
+        File path in storage  # noqa: E501
 
-        self.swagger_types.update(base.swagger_types)
-        self.attribute_map.update(base.attribute_map)
+        :return: The file_path.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_path
+
+    @file_path.setter
+    def file_path(self, file_path):
+        """
+        Sets the file_path.
+
+        File path in storage  # noqa: E501
+
+        :param file_path: The file_path.  # noqa: E501
+        :type: str
+        """
+        self._file_path = file_path
+    
+    @property
+    def storage_name(self):
+        """
+        Gets the storage_name.  # noqa: E501
+
+        Storage name  # noqa: E501
+
+        :return: The storage_name.  # noqa: E501
+        :rtype: str
+        """
+        return self._storage_name
+
+    @storage_name.setter
+    def storage_name(self, storage_name):
+        """
+        Sets the storage_name.
+
+        Storage name  # noqa: E501
+
+        :param storage_name: The storage_name.  # noqa: E501
+        :type: str
+        """
+        self._storage_name = storage_name
     
     @property
     def version_id(self):
         """
         Gets the version_id.  # noqa: E501
 
-        File Version ID.  # noqa: E501
+        Version ID  # noqa: E501
 
         :return: The version_id.  # noqa: E501
         :rtype: str
@@ -88,7 +138,7 @@ class FileVersion(StorageFile):
         """
         Sets the version_id.
 
-        File Version ID.  # noqa: E501
+        Version ID  # noqa: E501
 
         :param version_id: The version_id.  # noqa: E501
         :type: str
@@ -96,30 +146,28 @@ class FileVersion(StorageFile):
         self._version_id = version_id
     
     @property
-    def is_latest(self):
+    def password(self):
         """
-        Gets the is_latest.  # noqa: E501
+        Gets the password.  # noqa: E501
 
-        Specifies whether the file is (true) or is not (false) the latest version of an file.  # noqa: E501
+        Password to open file  # noqa: E501
 
-        :return: The is_latest.  # noqa: E501
-        :rtype: bool
+        :return: The password.  # noqa: E501
+        :rtype: str
         """
-        return self._is_latest
+        return self._password
 
-    @is_latest.setter
-    def is_latest(self, is_latest):
+    @password.setter
+    def password(self, password):
         """
-        Sets the is_latest.
+        Sets the password.
 
-        Specifies whether the file is (true) or is not (false) the latest version of an file.  # noqa: E501
+        Password to open file  # noqa: E501
 
-        :param is_latest: The is_latest.  # noqa: E501
-        :type: bool
+        :param password: The password.  # noqa: E501
+        :type: str
         """
-        if is_latest is None:
-            raise ValueError("Invalid value for `is_latest`, must not be `None`")  # noqa: E501
-        self._is_latest = is_latest
+        self._password = password
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -155,7 +203,7 @@ class FileVersion(StorageFile):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, FileVersion):
+        if not isinstance(other, FileInfo):
             return False
 
         return self.__dict__ == other.__dict__

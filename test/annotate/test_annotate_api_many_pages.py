@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2020 Aspose Pty Ltd
+#   Copyright (c) 2003-2021 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,34 +37,22 @@ from test.test_file import TestFile
 class TestAnnotateApiManyPages(TestContext):
     """AnnotateApi unit tests"""
 
-    def test_a_post_annotations(self):
+    def test_add_annotate_many_pages(self):
         for test_file in TestFile.get_test_files_many_pages():
-            path = test_file.folder + test_file.file_name
-            request = PostAnnotationsRequest(path, self.GetAnnotationsTestBody())
-            self.annotate_api.post_annotations(request)
+            file_info = FileInfo()
+            file_info.file_path = test_file.folder + test_file.file_name
+            file_info.password = test_file.password
+            options = AnnotateOptions()
+            options.file_info = file_info
+            options.annotations = self.GetAnnotations()
+            options.output_path = self.outputDir + "/" + test_file.file_name
 
-    def test_b_get_import(self):
-        for test_file in TestFile.get_test_files_many_pages():
-            path = test_file.folder + test_file.file_name
-            request = GetImportRequest(path)
-            response = self.annotate_api.get_import(request)
-            self.assertGreater(len(response), 0)
-
-    def test_c_get_export(self):
-        for test_file in TestFile.get_test_files_many_pages():
-            path = test_file.folder + test_file.file_name
-            request = GetExportRequest(path, "Area,Point", True, 2, 5)
-            response = self.annotate_api.get_export(request)
-            self.assertGreater(os.path.getsize(response), 0)
-
-    def test_d_delete_annotations(self):
-        for test_file in TestFile.get_test_files_many_pages():
-            path = test_file.folder + test_file.file_name
-            request = DeleteAnnotationsRequest(path)
-            self.annotate_api.delete_annotations(request)              
+            request = AnnotateRequest(options)
+            result = self.annotate_api.annotate(request)            
+            self.assertGreater(len(result['href']), 0)          
             
     @staticmethod
-    def GetAnnotationsTestBody():
+    def GetAnnotations():
         a1 = AnnotationInfo()
         a1.annotation_position = Point()
         a1.annotation_position.x = 852
@@ -74,7 +62,7 @@ class TestAnnotateApiManyPages(TestContext):
         a1.box.y = 59.388263702392578
         a1.box.width = 88.7330551147461
         a1.box.height = 37.7290153503418
-        a1.page_number = 1
+        a1.page_number = 0
         a1.pen_color = 1201033
         a1.pen_style = "Solid"
         a1.pen_width = 1

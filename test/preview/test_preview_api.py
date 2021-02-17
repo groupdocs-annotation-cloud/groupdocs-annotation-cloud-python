@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2020 Aspose Pty Ltd
+#   Copyright (c) 2003-2021 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,13 +37,20 @@ class TestPreviewApi(TestContext):
     """PreviewApi unit tests"""
 
     def test_get_delete_pages(self):
-        for test_file in TestFile.get_test_files():
-            path = test_file.folder + test_file.file_name
-            request = GetPagesRequest(path, None, None, None, None, None, None, "password")
+        for test_file in TestFile.get_test_files_annotation():
+            file_info = FileInfo()
+            file_info.file_path = test_file.folder + test_file.file_name
+            file_info.password = test_file.password
+
+            options = PreviewOptions()
+            options.file_info = file_info
+
+            request = GetPagesRequest(options)
             response = self.preview_api.get_pages(request)
             self.assertGreater(response.total_count, 0)
             self.assertGreater(len(response.entries), 0)
-            request = DeletePagesRequest(path)
+
+            request = DeletePagesRequest(file_info)
             self.preview_api.delete_pages(request)
             
 

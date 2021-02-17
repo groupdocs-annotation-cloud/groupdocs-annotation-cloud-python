@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2020 Aspose Pty Ltd
+#   Copyright (c) 2003-2021 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,11 +44,14 @@ class TestInfoApi(TestContext):
             self.assertFalse(format.extension == "")
     
     def test_get_info(self):
-        for test_file in TestFile.get_test_files():
-            path = test_file.folder + test_file.file_name
-            request = GetInfoRequest(path, "password")
+        for test_file in TestFile.get_test_files_annotation():
+            file_info = FileInfo()
+            file_info.file_path = test_file.folder + test_file.file_name
+            file_info.password = test_file.password
+
+            request = GetInfoRequest(file_info)
             response = self.info_api.get_info(request)
-            self.assertEqual(path, response.path)
+            self.assertEqual(file_info.file_path, response.path)
             self.assertGreater(len(response.pages), 0)
 
 if __name__ == '__main__':

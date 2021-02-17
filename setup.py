@@ -6,7 +6,7 @@ import datetime
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "groupdocs-annotation-cloud"
-VERSION = "20.10"
+VERSION = "21.2"
 
 # Append current time to the version when publishing to test environment
 if "--test" in sys.argv:

@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="test_context.py">
-#   Copyright (c) 2003-2020 Aspose Pty Ltd
+#   Copyright (c) 2003-2021 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -50,6 +50,7 @@ class TestContext(unittest.TestCase):
     file_api = None
     folder_api = None
     _test_files_uploaded = False
+    outputDir = "Output"
 
     def setUp(self):
         if six.PY3:
@@ -59,7 +60,7 @@ class TestContext(unittest.TestCase):
         self._upload_test_files()
 
     def tearDown(self):
-        # self._remove_folder_in_storage("annotation")
+        self._remove_folder_in_storage(self.outputDir)
         self._close_api_thread_pool()
 
     def get_test_file_path(self, file):

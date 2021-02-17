@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2020 Aspose Pty Ltd
+#   Copyright (c) 2003-2021 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -90,8 +90,7 @@ class InfoApi(object):
         asynchronous HTTP request, please pass is_async=True
 
         :param is_async bool
-        :param str file_path: Document path in storage (required)
-        :param str password: Source document password
+        :param FileInfo file_info: Document path in storage and password (required)
         :return: DocumentInfo
                  If the method is called asynchronously,
                  returns the request thread.
@@ -129,25 +128,15 @@ class InfoApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'file_path' is set
-        if request.file_path is None:
-            raise ValueError("Missing the required parameter `file_path` when calling `get_info`")  # noqa: E501
+        # verify the required parameter 'file_info' is set
+        if request.file_info is None:
+            raise ValueError("Missing the required parameter `file_info` when calling `get_info`")  # noqa: E501
 
         collection_formats = {}
         path = '/annotation/info'
         path_params = {}
 
         query_params = []
-        if self.__downcase_first_letter('filePath') in path:
-            path = path.replace('{' + self.__downcase_first_letter('filePath' + '}'), request.file_path if request.file_path is not None else '')
-        else:
-            if request.file_path is not None:
-                query_params.append((self.__downcase_first_letter('filePath'), request.file_path))  # noqa: E501
-        if self.__downcase_first_letter('password') in path:
-            path = path.replace('{' + self.__downcase_first_letter('password' + '}'), request.password if request.password is not None else '')
-        else:
-            if request.password is not None:
-                query_params.append((self.__downcase_first_letter('password'), request.password))  # noqa: E501
 
         header_params = {}
 
@@ -155,6 +144,8 @@ class InfoApi(object):
         local_var_files = []
 
         body_params = None
+        if request.file_info is not None:
+            body_params = request.file_info
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -165,7 +156,7 @@ class InfoApi(object):
 
         call_kwargs = {
             'resource_path':path, 
-            'method':'GET',
+            'method':'POST',
             'path_params':path_params,
             'query_params':query_params,
             'header_params':header_params,
@@ -278,7 +269,7 @@ class InfoApi(object):
 
 # --------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="get_info_request.py">
-#   Copyright (c) 2003-2020 Aspose Pty Ltd
+#   Copyright (c) 2003-2021 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -304,11 +295,9 @@ class InfoApi(object):
 class GetInfoRequest(object):
     """
     Request model for get_info operation.
-    :param file_path Document path in storage
-    :param password Source document password
+    :param file_info Document path in storage and password
     """
 
-    def __init__(self, file_path, password=None):
+    def __init__(self, file_info):
         """Initializes new instance of GetInfoRequest."""  # noqa: E501
-        self.file_path = file_path
-        self.password = password
+        self.file_info = file_info

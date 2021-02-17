@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2020 Aspose Pty Ltd
+#   Copyright (c) 2003-2021 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,41 +37,60 @@ from test.test_file import TestFile
 class TestAnnotateApi(TestContext):
     """AnnotateApi unit tests"""
 
-    def test_a_post_annotations(self):
-        for test_file in TestFile.get_test_files():
-            path = test_file.folder + test_file.file_name
-            request = PostAnnotationsRequest(path, self.GetAnnotationsTestBody())
-            self.annotate_api.post_annotations(request)
+    def test_add_annotate(self):
+        for test_file in TestFile.get_test_files_annotation():
+            file_info = FileInfo()
+            file_info.file_path = test_file.folder + test_file.file_name
+            file_info.password = test_file.password
+            options = AnnotateOptions()
+            options.file_info = file_info
+            options.annotations = self.GetAnnotations()
+            options.output_path = self.outputDir + "/" + test_file.file_name
 
-    def test_b_get_import(self):
-        for test_file in TestFile.get_test_files():
-            path = test_file.folder + test_file.file_name
-            request = GetImportRequest(path)
-            response = self.annotate_api.get_import(request)
-            self.assertGreater(len(response), 0)
+            request = AnnotateRequest(options)
+            result = self.annotate_api.annotate(request)            
+            self.assertGreater(len(result['href']), 0)
 
-    def test_c_get_export(self):        
-        self.get_export_case(TestFile.OnePageEmail())
-        self.get_export_case(TestFile.OnePagePng())
-        self.get_export_case(TestFile.OnePagePdf())
-        self.get_export_case(TestFile.OnePageWords())
-        self.get_export_case(TestFile.TenPagesWords(), "Area,Point", True, 2, 5)
-        self.get_export_case(TestFile.OnePagePasswordPdf(), None, None, None, None, "password")
+    def test_add_annotate_direct(self):
+        for test_file in TestFile.get_test_files_annotation():
+            file_info = FileInfo()
+            file_info.file_path = test_file.folder + test_file.file_name
+            file_info.password = test_file.password
+            options = AnnotateOptions()
+            options.file_info = file_info
+            options.annotations = self.GetAnnotations()
+            options.output_path = self.outputDir + "/" + test_file.file_name
 
-    def get_export_case(self, test_file, annotation_types=None, annotated_pages=None, first_page=None, last_page=None, password=None):
-        path = test_file.folder + test_file.file_name
-        request = GetExportRequest(path, annotation_types, annotated_pages, first_page, last_page, password)
-        response = self.annotate_api.get_export(request)
-        self.assertGreater(os.path.getsize(response), 0)
+            request = AnnotateDirectRequest(options)
+            result = self.annotate_api.annotate_direct(request)            
+            self.assertGreater(len(result), 0)
 
-    def test_d_delete_annotations(self):
-        for test_file in TestFile.get_test_files():
-            path = test_file.folder + test_file.file_name
-            request = DeleteAnnotationsRequest(path)
-            self.annotate_api.delete_annotations(request)              
+    def test_extract(self):
+        for test_file in TestFile.get_test_files_with_annotations():
+            file_info = FileInfo()
+            file_info.file_path = test_file.folder + test_file.file_name
+            file_info.password = test_file.password
+
+            request = ExtractRequest(file_info)
+            result = self.annotate_api.extract(request)            
+            self.assertGreater(len(result), 0)
+
+    def test_remove_annotations(self):
+        for test_file in TestFile.get_test_files_with_annotations():
+            file_info = FileInfo()
+            file_info.file_path = test_file.folder + test_file.file_name
+            file_info.password = test_file.password
+            options = RemoveOptions()
+            options.file_info = file_info
+            options.annotation_ids = [1, 2, 3]
+            options.output_path = self.outputDir + "/" + test_file.file_name
+
+            request = RemoveAnnotationsRequest(options)
+            result = self.annotate_api.remove_annotations(request)            
+            self.assertGreater(len(result['href']), 0)
             
     @staticmethod
-    def GetAnnotationsTestBody():
+    def GetAnnotations():
         a = AnnotationInfo()
         a.annotation_position = Point()
         a.annotation_position.x = 852

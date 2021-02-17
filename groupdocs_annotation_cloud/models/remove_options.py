@@ -1,7 +1,7 @@
 # coding: utf-8
 
 # -----------------------------------------------------------------------------------
-# <copyright company="Aspose Pty Ltd" file="FileVersion.py">
+# <copyright company="Aspose Pty Ltd" file="RemoveOptions.py">
 #   Copyright (c) 2003-2021 Aspose Pty Ltd
 # </copyright>
 # <summary>
@@ -30,11 +30,9 @@ import re  # noqa: F401
 
 import six
 
-from groupdocs_annotation_cloud.models import StorageFile
-
-class FileVersion(StorageFile):
+class RemoveOptions(object):
     """
-    File Version
+    Options for removing annotations
     """
 
     """
@@ -45,81 +43,102 @@ class FileVersion(StorageFile):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'version_id': 'str',
-        'is_latest': 'bool'
+        'file_info': 'FileInfo',
+        'annotation_ids': 'list[int]',
+        'output_path': 'str'
     }
 
     attribute_map = {
-        'version_id': 'VersionId',
-        'is_latest': 'IsLatest'
+        'file_info': 'FileInfo',
+        'annotation_ids': 'AnnotationIds',
+        'output_path': 'OutputPath'
     }
 
-    def __init__(self, version_id=None, is_latest=None, **kwargs):  # noqa: E501
-        """Initializes new instance of FileVersion"""  # noqa: E501
+    def __init__(self, file_info=None, annotation_ids=None, output_path=None, **kwargs):  # noqa: E501
+        """Initializes new instance of RemoveOptions"""  # noqa: E501
 
-        self._version_id = None
-        self._is_latest = None
+        self._file_info = None
+        self._annotation_ids = None
+        self._output_path = None
 
-        if version_id is not None:
-            self.version_id = version_id
-        if is_latest is not None:
-            self.is_latest = is_latest
-
-        base = super(FileVersion, self)
-        base.__init__(**kwargs)
-
-        self.swagger_types.update(base.swagger_types)
-        self.attribute_map.update(base.attribute_map)
+        if file_info is not None:
+            self.file_info = file_info
+        if annotation_ids is not None:
+            self.annotation_ids = annotation_ids
+        if output_path is not None:
+            self.output_path = output_path
     
     @property
-    def version_id(self):
+    def file_info(self):
         """
-        Gets the version_id.  # noqa: E501
+        Gets the file_info.  # noqa: E501
 
-        File Version ID.  # noqa: E501
+        Input document description  # noqa: E501
 
-        :return: The version_id.  # noqa: E501
+        :return: The file_info.  # noqa: E501
+        :rtype: FileInfo
+        """
+        return self._file_info
+
+    @file_info.setter
+    def file_info(self, file_info):
+        """
+        Sets the file_info.
+
+        Input document description  # noqa: E501
+
+        :param file_info: The file_info.  # noqa: E501
+        :type: FileInfo
+        """
+        self._file_info = file_info
+    
+    @property
+    def annotation_ids(self):
+        """
+        Gets the annotation_ids.  # noqa: E501
+
+        List of annotation IDs to remove from the document  # noqa: E501
+
+        :return: The annotation_ids.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._annotation_ids
+
+    @annotation_ids.setter
+    def annotation_ids(self, annotation_ids):
+        """
+        Sets the annotation_ids.
+
+        List of annotation IDs to remove from the document  # noqa: E501
+
+        :param annotation_ids: The annotation_ids.  # noqa: E501
+        :type: list[int]
+        """
+        self._annotation_ids = annotation_ids
+    
+    @property
+    def output_path(self):
+        """
+        Gets the output_path.  # noqa: E501
+
+        Path to output document in the cloud storage.  # noqa: E501
+
+        :return: The output_path.  # noqa: E501
         :rtype: str
         """
-        return self._version_id
+        return self._output_path
 
-    @version_id.setter
-    def version_id(self, version_id):
+    @output_path.setter
+    def output_path(self, output_path):
         """
-        Sets the version_id.
+        Sets the output_path.
 
-        File Version ID.  # noqa: E501
+        Path to output document in the cloud storage.  # noqa: E501
 
-        :param version_id: The version_id.  # noqa: E501
+        :param output_path: The output_path.  # noqa: E501
         :type: str
         """
-        self._version_id = version_id
-    
-    @property
-    def is_latest(self):
-        """
-        Gets the is_latest.  # noqa: E501
-
-        Specifies whether the file is (true) or is not (false) the latest version of an file.  # noqa: E501
-
-        :return: The is_latest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_latest
-
-    @is_latest.setter
-    def is_latest(self, is_latest):
-        """
-        Sets the is_latest.
-
-        Specifies whether the file is (true) or is not (false) the latest version of an file.  # noqa: E501
-
-        :param is_latest: The is_latest.  # noqa: E501
-        :type: bool
-        """
-        if is_latest is None:
-            raise ValueError("Invalid value for `is_latest`, must not be `None`")  # noqa: E501
-        self._is_latest = is_latest
+        self._output_path = output_path
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -155,7 +174,7 @@ class FileVersion(StorageFile):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, FileVersion):
+        if not isinstance(other, RemoveOptions):
             return False
 
         return self.__dict__ == other.__dict__

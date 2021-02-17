@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="test_file.py">
-#   Copyright (c) 2003-2020 Aspose Pty Ltd
+#   Copyright (c) 2003-2021 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,12 +30,16 @@ from __future__ import absolute_import
 
 class TestFile:
     """Test file"""
+    
+    file_name = None
+    folder = None
+    password = None
 
     @classmethod
     def OnePageCells(cls):
         f = TestFile()
         f.file_name = "one-page.xlsx"
-        f.folder = "cells\\"
+        f.folder = "cells\\"        
         return f
 
     @classmethod
@@ -43,6 +47,7 @@ class TestFile:
         f = TestFile()
         f.file_name = "one-page-password.xlsx"
         f.folder = "cells\\"
+        f.password = "password"
         return f
 
     @classmethod
@@ -106,6 +111,7 @@ class TestFile:
         f = TestFile()
         f.file_name = "one-page-password.pdf"
         f.folder = "pdf\\"
+        f.password = "password"
         return f
 
     @classmethod
@@ -127,6 +133,7 @@ class TestFile:
         f = TestFile()
         f.file_name = "one-page-password.pptx"
         f.folder = "slides\\"
+        f.password = "password"
         return f
 
     @classmethod
@@ -148,6 +155,7 @@ class TestFile:
         f = TestFile()
         f.file_name = "one-page-password.docx"
         f.folder = "words\\"
+        f.password = "password"
         return f
 
     @classmethod
@@ -155,7 +163,63 @@ class TestFile:
         f = TestFile()
         f.file_name = "ten-pages.docx"
         f.folder = "words\\"
-        return f        
+        return f 
+
+    @classmethod
+    def InputWords(cls):
+        f = TestFile()
+        f.file_name = "input.docx"
+        f.folder = "input\\"
+        return f 
+
+    @classmethod
+    def InputCells(cls):
+        f = TestFile()
+        f.file_name = "input.xlsx"
+        f.folder = "input\\"
+        return f 
+
+    @classmethod
+    def InputEmail(cls):
+        f = TestFile()
+        f.file_name = "input.eml"
+        f.folder = "input\\"
+        return f 
+
+    @classmethod
+    def InputHtml(cls):
+        f = TestFile()
+        f.file_name = "input.html"
+        f.folder = "input\\"
+        return f 
+
+    @classmethod
+    def InputPdf(cls):
+        f = TestFile()
+        f.file_name = "input.pdf"
+        f.folder = "input\\"
+        return f 
+
+    @classmethod
+    def InputImage(cls):
+        f = TestFile()
+        f.file_name = "input.png"
+        f.folder = "input\\"
+        return f 
+
+    @classmethod
+    def InputPresentation(cls):
+        f = TestFile()
+        f.file_name = "input.pptx"
+        f.folder = "input\\"
+        return f 
+
+    @classmethod
+    def InputDiagram(cls):
+        f = TestFile()
+        f.file_name = "input.vsdx"
+        f.folder = "input\\"
+        return f                                                                        
 
     @classmethod
     def get_test_files(cls):
@@ -163,8 +227,8 @@ class TestFile:
             cls.OnePageCells(),
             cls.OnePagePasswordCells(),
             cls.TenPagesCells(),
-            #cls.OnePageDiagram(),
-            #cls.TenPagesDiagram(),
+            cls.OnePageDiagram(),
+            cls.TenPagesDiagram(),
             cls.OnePageEmail(),
             cls.OnePageHtml(),
             cls.OnePageBmp(),
@@ -172,31 +236,38 @@ class TestFile:
             cls.OnePagePdf(),
             cls.OnePagePasswordPdf(),
             cls.TenPagesPdf(),
-            #cls.OnePageSlides(),
+            cls.OnePageSlides(),
             cls.OnePagePasswordSlides(),
-            #cls.TenPagesSlides(),
+            cls.TenPagesSlides(),
             cls.OnePageWords(),
             cls.OnePagePasswordWords(),
-            cls.TenPagesWords()
+            cls.TenPagesWords(),
+            cls.InputWords(),
+            cls.InputCells(),
+            cls.InputEmail(),
+            cls.InputHtml(),
+            cls.InputPdf(),
+            cls.InputImage(),
+            cls.InputPresentation(),
+            cls.InputDiagram()
         ]
 
     @classmethod
-    def get_test_files_no_password(cls):
+    def get_test_files_annotation(cls):
         return [
-            cls.OnePageCells(),            
-            cls.TenPagesCells(),
+            cls.OnePageCells(),
+            cls.OnePagePasswordCells(),
             cls.OnePageDiagram(),
-            cls.TenPagesDiagram(),
             cls.OnePageEmail(),
             cls.OnePageHtml(),
             cls.OnePageBmp(),
             cls.OnePagePng(),
-            cls.OnePagePdf(),            
-            cls.TenPagesPdf(),
-            cls.OnePageSlides(),            
-            cls.TenPagesSlides(),
-            cls.OnePageWords(),            
-            cls.TenPagesWords()
+            cls.OnePagePdf(),
+            cls.OnePagePasswordPdf(),
+            cls.OnePageSlides(),
+            cls.OnePagePasswordSlides(),
+            cls.OnePageWords(),
+            cls.OnePagePasswordWords()
         ]        
 
     @classmethod
@@ -204,8 +275,20 @@ class TestFile:
         return [            
             cls.TenPagesCells(),
             cls.TenPagesDiagram(),
-            #cls.TenPagesPdf(),
+            cls.TenPagesPdf(),
             cls.TenPagesSlides(),
             cls.TenPagesWords()
         ]                
 
+    @classmethod
+    def get_test_files_with_annotations(cls):
+        return [            
+            cls.InputWords(),
+            cls.InputCells(),
+            cls.InputEmail(),
+            cls.InputHtml(),
+            cls.InputPdf(),
+            cls.InputImage(),
+            cls.InputPresentation(),
+            cls.InputDiagram()
+        ]    

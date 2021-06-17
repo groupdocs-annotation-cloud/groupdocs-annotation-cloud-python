@@ -54,5 +54,14 @@ class TestInfoApi(TestContext):
             self.assertEqual(file_info.file_path, response.path)
             self.assertGreater(len(response.pages), 0)
 
+    def test_get_info_returns_file_not_found(self):
+        file_info = FileInfo()
+        file_info.file_path = "somefolder\\not-exist.docx"
+
+        request = GetInfoRequest(file_info)
+        with self.assertRaises(ApiException) as context:
+            self.info_api.get_info(request)
+        self.assertEqual("Specified file not found", context.exception.message)
+
 if __name__ == '__main__':
     unittest.main()

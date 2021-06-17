@@ -48,7 +48,10 @@ class PreviewOptions(object):
         'page_numbers': 'list[int]',
         'width': 'int',
         'height': 'int',
-        'render_comments': 'bool'
+        'resolution': 'int',
+        'render_comments': 'bool',
+        'render_annotations': 'bool',
+        'fonts_path': 'str'
     }
 
     attribute_map = {
@@ -57,10 +60,13 @@ class PreviewOptions(object):
         'page_numbers': 'PageNumbers',
         'width': 'Width',
         'height': 'Height',
-        'render_comments': 'RenderComments'
+        'resolution': 'Resolution',
+        'render_comments': 'RenderComments',
+        'render_annotations': 'RenderAnnotations',
+        'fonts_path': 'FontsPath'
     }
 
-    def __init__(self, file_info=None, format=None, page_numbers=None, width=None, height=None, render_comments=None, **kwargs):  # noqa: E501
+    def __init__(self, file_info=None, format=None, page_numbers=None, width=None, height=None, resolution=None, render_comments=None, render_annotations=None, fonts_path=None, **kwargs):  # noqa: E501
         """Initializes new instance of PreviewOptions"""  # noqa: E501
 
         self._file_info = None
@@ -68,7 +74,10 @@ class PreviewOptions(object):
         self._page_numbers = None
         self._width = None
         self._height = None
+        self._resolution = None
         self._render_comments = None
+        self._render_annotations = None
+        self._fonts_path = None
 
         if file_info is not None:
             self.file_info = file_info
@@ -80,8 +89,14 @@ class PreviewOptions(object):
             self.width = width
         if height is not None:
             self.height = height
+        if resolution is not None:
+            self.resolution = resolution
         if render_comments is not None:
             self.render_comments = render_comments
+        if render_annotations is not None:
+            self.render_annotations = render_annotations
+        if fonts_path is not None:
+            self.fonts_path = fonts_path
     
     @property
     def file_info(self):
@@ -218,6 +233,32 @@ class PreviewOptions(object):
         self._height = height
     
     @property
+    def resolution(self):
+        """
+        Gets the resolution.  # noqa: E501
+
+        Gets or sets the resolution for generated images, in dots per inch. The default value is 96.  # noqa: E501
+
+        :return: The resolution.  # noqa: E501
+        :rtype: int
+        """
+        return self._resolution
+
+    @resolution.setter
+    def resolution(self, resolution):
+        """
+        Sets the resolution.
+
+        Gets or sets the resolution for generated images, in dots per inch. The default value is 96.  # noqa: E501
+
+        :param resolution: The resolution.  # noqa: E501
+        :type: int
+        """
+        if resolution is None:
+            raise ValueError("Invalid value for `resolution`, must not be `None`")  # noqa: E501
+        self._resolution = resolution
+    
+    @property
     def render_comments(self):
         """
         Gets the render_comments.  # noqa: E501
@@ -242,6 +283,56 @@ class PreviewOptions(object):
         if render_comments is None:
             raise ValueError("Invalid value for `render_comments`, must not be `None`")  # noqa: E501
         self._render_comments = render_comments
+    
+    @property
+    def render_annotations(self):
+        """
+        Gets the render_annotations.  # noqa: E501
+
+        The property that controls whether annotations will be generated on the preview. Default State - true.  # noqa: E501
+
+        :return: The render_annotations.  # noqa: E501
+        :rtype: bool
+        """
+        return self._render_annotations
+
+    @render_annotations.setter
+    def render_annotations(self, render_annotations):
+        """
+        Sets the render_annotations.
+
+        The property that controls whether annotations will be generated on the preview. Default State - true.  # noqa: E501
+
+        :param render_annotations: The render_annotations.  # noqa: E501
+        :type: bool
+        """
+        if render_annotations is None:
+            raise ValueError("Invalid value for `render_annotations`, must not be `None`")  # noqa: E501
+        self._render_annotations = render_annotations
+    
+    @property
+    def fonts_path(self):
+        """
+        Gets the fonts_path.  # noqa: E501
+
+        The path to directory containing custom fonts in storage  # noqa: E501
+
+        :return: The fonts_path.  # noqa: E501
+        :rtype: str
+        """
+        return self._fonts_path
+
+    @fonts_path.setter
+    def fonts_path(self, fonts_path):
+        """
+        Sets the fonts_path.
+
+        The path to directory containing custom fonts in storage  # noqa: E501
+
+        :param fonts_path: The fonts_path.  # noqa: E501
+        :type: str
+        """
+        self._fonts_path = fonts_path
 
     def to_dict(self):
         """Returns the model properties as a dict"""

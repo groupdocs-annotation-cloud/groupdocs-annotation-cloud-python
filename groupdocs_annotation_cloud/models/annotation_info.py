@@ -68,6 +68,7 @@ class AnnotationInfo(object):
         'font_size': 'float',
         'opacity': 'float',
         'angle': 'float',
+        'z_index': 'int',
         'url': 'str',
         'image_path': 'str'
     }
@@ -98,11 +99,12 @@ class AnnotationInfo(object):
         'font_size': 'FontSize',
         'opacity': 'Opacity',
         'angle': 'Angle',
+        'z_index': 'ZIndex',
         'url': 'Url',
         'image_path': 'ImagePath'
     }
 
-    def __init__(self, id=None, text=None, text_to_replace=None, horizontal_alignment=None, vertical_alignment=None, creator_id=None, creator_name=None, creator_email=None, box=None, points=None, page_number=None, annotation_position=None, svg_path=None, type=None, replies=None, created_on=None, font_color=None, pen_color=None, pen_width=None, pen_style=None, background_color=None, font_family=None, font_size=None, opacity=None, angle=None, url=None, image_path=None, **kwargs):  # noqa: E501
+    def __init__(self, id=None, text=None, text_to_replace=None, horizontal_alignment=None, vertical_alignment=None, creator_id=None, creator_name=None, creator_email=None, box=None, points=None, page_number=None, annotation_position=None, svg_path=None, type=None, replies=None, created_on=None, font_color=None, pen_color=None, pen_width=None, pen_style=None, background_color=None, font_family=None, font_size=None, opacity=None, angle=None, z_index=None, url=None, image_path=None, **kwargs):  # noqa: E501
         """Initializes new instance of AnnotationInfo"""  # noqa: E501
 
         self._id = None
@@ -130,6 +132,7 @@ class AnnotationInfo(object):
         self._font_size = None
         self._opacity = None
         self._angle = None
+        self._z_index = None
         self._url = None
         self._image_path = None
 
@@ -183,6 +186,8 @@ class AnnotationInfo(object):
             self.opacity = opacity
         if angle is not None:
             self.angle = angle
+        if z_index is not None:
+            self.z_index = z_index
         if url is not None:
             self.url = url
         if image_path is not None:
@@ -833,6 +838,32 @@ class AnnotationInfo(object):
         :type: float
         """
         self._angle = angle
+    
+    @property
+    def z_index(self):
+        """
+        Gets the z_index.  # noqa: E501
+
+        Gets or sets z-index. Default value is 0 The z-index property specifies the stack order of an element.  # noqa: E501
+
+        :return: The z_index.  # noqa: E501
+        :rtype: int
+        """
+        return self._z_index
+
+    @z_index.setter
+    def z_index(self, z_index):
+        """
+        Sets the z_index.
+
+        Gets or sets z-index. Default value is 0 The z-index property specifies the stack order of an element.  # noqa: E501
+
+        :param z_index: The z_index.  # noqa: E501
+        :type: int
+        """
+        if z_index is None:
+            raise ValueError("Invalid value for `z_index`, must not be `None`")  # noqa: E501
+        self._z_index = z_index
     
     @property
     def url(self):

@@ -48,7 +48,8 @@ class AnnotateOptions(object):
         'first_page': 'int',
         'last_page': 'int',
         'only_annotated_pages': 'bool',
-        'output_path': 'str'
+        'output_path': 'str',
+        'fonts_path': 'str'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class AnnotateOptions(object):
         'first_page': 'FirstPage',
         'last_page': 'LastPage',
         'only_annotated_pages': 'OnlyAnnotatedPages',
-        'output_path': 'OutputPath'
+        'output_path': 'OutputPath',
+        'fonts_path': 'FontsPath'
     }
 
-    def __init__(self, file_info=None, annotations=None, first_page=None, last_page=None, only_annotated_pages=None, output_path=None, **kwargs):  # noqa: E501
+    def __init__(self, file_info=None, annotations=None, first_page=None, last_page=None, only_annotated_pages=None, output_path=None, fonts_path=None, **kwargs):  # noqa: E501
         """Initializes new instance of AnnotateOptions"""  # noqa: E501
 
         self._file_info = None
@@ -69,6 +71,7 @@ class AnnotateOptions(object):
         self._last_page = None
         self._only_annotated_pages = None
         self._output_path = None
+        self._fonts_path = None
 
         if file_info is not None:
             self.file_info = file_info
@@ -82,6 +85,8 @@ class AnnotateOptions(object):
             self.only_annotated_pages = only_annotated_pages
         if output_path is not None:
             self.output_path = output_path
+        if fonts_path is not None:
+            self.fonts_path = fonts_path
     
     @property
     def file_info(self):
@@ -232,6 +237,30 @@ class AnnotateOptions(object):
         :type: str
         """
         self._output_path = output_path
+    
+    @property
+    def fonts_path(self):
+        """
+        Gets the fonts_path.  # noqa: E501
+
+        The path to directory containing custom fonts in storage  # noqa: E501
+
+        :return: The fonts_path.  # noqa: E501
+        :rtype: str
+        """
+        return self._fonts_path
+
+    @fonts_path.setter
+    def fonts_path(self, fonts_path):
+        """
+        Sets the fonts_path.
+
+        The path to directory containing custom fonts in storage  # noqa: E501
+
+        :param fonts_path: The fonts_path.  # noqa: E501
+        :type: str
+        """
+        self._fonts_path = fonts_path
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -7,6 +7,7 @@ from __future__ import absolute_import
 from groupdocs_annotation_cloud.models.annotate_options import AnnotateOptions
 from groupdocs_annotation_cloud.models.annotation_info import AnnotationInfo
 from groupdocs_annotation_cloud.models.annotation_reply_info import AnnotationReplyInfo
+from groupdocs_annotation_cloud.models.consumption_result import ConsumptionResult
 from groupdocs_annotation_cloud.models.disc_usage import DiscUsage
 from groupdocs_annotation_cloud.models.document_info import DocumentInfo
 from groupdocs_annotation_cloud.models.error import Error

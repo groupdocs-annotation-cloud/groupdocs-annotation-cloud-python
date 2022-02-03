@@ -64,13 +64,15 @@ class AnnotationInfo(object):
         'pen_width': 'int',
         'pen_style': 'str',
         'background_color': 'int',
+        'squiggly_color': 'int',
         'font_family': 'str',
         'font_size': 'float',
         'opacity': 'float',
         'angle': 'float',
         'z_index': 'int',
         'url': 'str',
-        'image_path': 'str'
+        'image_path': 'str',
+        'auto_scale': 'bool'
     }
 
     attribute_map = {
@@ -95,16 +97,18 @@ class AnnotationInfo(object):
         'pen_width': 'PenWidth',
         'pen_style': 'PenStyle',
         'background_color': 'BackgroundColor',
+        'squiggly_color': 'SquigglyColor',
         'font_family': 'FontFamily',
         'font_size': 'FontSize',
         'opacity': 'Opacity',
         'angle': 'Angle',
         'z_index': 'ZIndex',
         'url': 'Url',
-        'image_path': 'ImagePath'
+        'image_path': 'ImagePath',
+        'auto_scale': 'AutoScale'
     }
 
-    def __init__(self, id=None, text=None, text_to_replace=None, horizontal_alignment=None, vertical_alignment=None, creator_id=None, creator_name=None, creator_email=None, box=None, points=None, page_number=None, annotation_position=None, svg_path=None, type=None, replies=None, created_on=None, font_color=None, pen_color=None, pen_width=None, pen_style=None, background_color=None, font_family=None, font_size=None, opacity=None, angle=None, z_index=None, url=None, image_path=None, **kwargs):  # noqa: E501
+    def __init__(self, id=None, text=None, text_to_replace=None, horizontal_alignment=None, vertical_alignment=None, creator_id=None, creator_name=None, creator_email=None, box=None, points=None, page_number=None, annotation_position=None, svg_path=None, type=None, replies=None, created_on=None, font_color=None, pen_color=None, pen_width=None, pen_style=None, background_color=None, squiggly_color=None, font_family=None, font_size=None, opacity=None, angle=None, z_index=None, url=None, image_path=None, auto_scale=None, **kwargs):  # noqa: E501
         """Initializes new instance of AnnotationInfo"""  # noqa: E501
 
         self._id = None
@@ -128,6 +132,7 @@ class AnnotationInfo(object):
         self._pen_width = None
         self._pen_style = None
         self._background_color = None
+        self._squiggly_color = None
         self._font_family = None
         self._font_size = None
         self._opacity = None
@@ -135,6 +140,7 @@ class AnnotationInfo(object):
         self._z_index = None
         self._url = None
         self._image_path = None
+        self._auto_scale = None
 
         if id is not None:
             self.id = id
@@ -178,6 +184,8 @@ class AnnotationInfo(object):
             self.pen_style = pen_style
         if background_color is not None:
             self.background_color = background_color
+        if squiggly_color is not None:
+            self.squiggly_color = squiggly_color
         if font_family is not None:
             self.font_family = font_family
         if font_size is not None:
@@ -192,6 +200,8 @@ class AnnotationInfo(object):
             self.url = url
         if image_path is not None:
             self.image_path = image_path
+        if auto_scale is not None:
+            self.auto_scale = auto_scale
     
     @property
     def id(self):
@@ -555,7 +565,7 @@ class AnnotationInfo(object):
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["None", "Area", "Arrow", "Distance", "Ellipse", "Link", "Point", "Polyline", "ResourcesRedaction", "TextField", "TextHighlight", "TextRedaction", "TextReplacement", "TextStrikeout", "TextUnderline", "Watermark", "Image"]  # noqa: E501
+        allowed_values = ["None", "Area", "Arrow", "Distance", "Ellipse", "Link", "Point", "Polyline", "ResourcesRedaction", "TextField", "TextHighlight", "TextRedaction", "TextReplacement", "TextStrikeout", "TextUnderline", "Watermark", "Image", "TextSquiggly"]  # noqa: E501
         if not type.isdigit():	
             if type not in allowed_values:
                 raise ValueError(
@@ -744,6 +754,30 @@ class AnnotationInfo(object):
         self._background_color = background_color
     
     @property
+    def squiggly_color(self):
+        """
+        Gets the squiggly_color.  # noqa: E501
+
+        Gets or sets annotation color  # noqa: E501
+
+        :return: The squiggly_color.  # noqa: E501
+        :rtype: int
+        """
+        return self._squiggly_color
+
+    @squiggly_color.setter
+    def squiggly_color(self, squiggly_color):
+        """
+        Sets the squiggly_color.
+
+        Gets or sets annotation color  # noqa: E501
+
+        :param squiggly_color: The squiggly_color.  # noqa: E501
+        :type: int
+        """
+        self._squiggly_color = squiggly_color
+    
+    @property
     def font_family(self):
         """
         Gets the font_family.  # noqa: E501
@@ -912,6 +946,32 @@ class AnnotationInfo(object):
         :type: str
         """
         self._image_path = image_path
+    
+    @property
+    def auto_scale(self):
+        """
+        Gets the auto_scale.  # noqa: E501
+
+        Sets auto scale for watermark annotation  # noqa: E501
+
+        :return: The auto_scale.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_scale
+
+    @auto_scale.setter
+    def auto_scale(self, auto_scale):
+        """
+        Sets the auto_scale.
+
+        Sets auto scale for watermark annotation  # noqa: E501
+
+        :param auto_scale: The auto_scale.  # noqa: E501
+        :type: bool
+        """
+        if auto_scale is None:
+            raise ValueError("Invalid value for `auto_scale`, must not be `None`")  # noqa: E501
+        self._auto_scale = auto_scale
 
     def to_dict(self):
         """Returns the model properties as a dict"""

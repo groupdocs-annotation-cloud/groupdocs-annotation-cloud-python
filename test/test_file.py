@@ -258,8 +258,6 @@ class TestFile:
             cls.OnePageCells(),
             cls.OnePagePasswordCells(),
             cls.OnePageDiagram(),
-            cls.OnePageEmail(),
-            cls.OnePageHtml(),
             cls.OnePageBmp(),
             cls.OnePagePng(),
             cls.OnePagePdf(),

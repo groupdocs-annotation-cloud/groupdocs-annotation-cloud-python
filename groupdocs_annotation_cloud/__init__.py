@@ -9,6 +9,7 @@ from groupdocs_annotation_cloud.apis.annotate_api import AnnotateApi, RemoveAnno
 from groupdocs_annotation_cloud.apis.file_api import FileApi, CopyFileRequest, DeleteFileRequest, DownloadFileRequest, MoveFileRequest, UploadFileRequest
 from groupdocs_annotation_cloud.apis.folder_api import FolderApi, CopyFolderRequest, CreateFolderRequest, DeleteFolderRequest, GetFilesListRequest, MoveFolderRequest
 from groupdocs_annotation_cloud.apis.info_api import InfoApi, GetInfoRequest
+from groupdocs_annotation_cloud.apis.license_api import LicenseApi
 from groupdocs_annotation_cloud.apis.preview_api import PreviewApi, DeletePagesRequest, GetPagesRequest
 from groupdocs_annotation_cloud.apis.storage_api import StorageApi, GetDiscUsageRequest, GetFileVersionsRequest, ObjectExistsRequest, StorageExistsRequest
 
@@ -22,6 +23,7 @@ from groupdocs_annotation_cloud.configuration import Configuration
 from groupdocs_annotation_cloud.models.annotate_options import AnnotateOptions
 from groupdocs_annotation_cloud.models.annotation_info import AnnotationInfo
 from groupdocs_annotation_cloud.models.annotation_reply_info import AnnotationReplyInfo
+from groupdocs_annotation_cloud.models.consumption_result import ConsumptionResult
 from groupdocs_annotation_cloud.models.disc_usage import DiscUsage
 from groupdocs_annotation_cloud.models.document_info import DocumentInfo
 from groupdocs_annotation_cloud.models.error import Error
@@ -46,4 +48,5 @@ from groupdocs_annotation_cloud.models.storage_file import StorageFile
 from groupdocs_annotation_cloud.models.annotation_api_link import AnnotationApiLink
 from groupdocs_annotation_cloud.models.file_version import FileVersion
 from groupdocs_annotation_cloud.models.page_image import PageImage
+
 

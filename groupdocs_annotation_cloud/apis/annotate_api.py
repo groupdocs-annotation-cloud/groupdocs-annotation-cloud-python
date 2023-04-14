@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd">
-#   Copyright (c) 2003-2021 Aspose Pty Ltd
+#   Copyright (c) 2003-2023 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -457,7 +457,7 @@ class AnnotateApi(object):
 
 # --------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="annotate_request.py">
-#   Copyright (c) 2003-2021 Aspose Pty Ltd
+#   Copyright (c) 2003-2023 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -493,7 +493,7 @@ class AnnotateRequest(object):
 
 # --------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="annotate_direct_request.py">
-#   Copyright (c) 2003-2021 Aspose Pty Ltd
+#   Copyright (c) 2003-2023 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -529,7 +529,7 @@ class AnnotateDirectRequest(object):
 
 # --------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="extract_request.py">
-#   Copyright (c) 2003-2021 Aspose Pty Ltd
+#   Copyright (c) 2003-2023 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -565,7 +565,7 @@ class ExtractRequest(object):
 
 # --------------------------------------------------------------------------------
 # <copyright company="Aspose Pty Ltd" file="remove_annotations_request.py">
-#   Copyright (c) 2003-2021 Aspose Pty Ltd
+#   Copyright (c) 2003-2023 Aspose Pty Ltd
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
